@@ -150,21 +150,30 @@
                     </div>
 
                     <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
-                        <form action="#" class="row g-lg-3 gy-3">
+                        <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                            <strong>Thank You!</strong> your message has been received
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <form action="#" class="row g-lg-3 gy-3" name="contact-form">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="Enter your name">
+                                <input type="text" class="form-control" placeholder="Enter your name" name="nama">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="email">
                             </div>
                             <div class="form-group col-12">
-                                <input type="text" class="form-control" placeholder="Enter subject">
+                                <input type="text" class="form-control" placeholder="Enter subject" name="subjek">
                             </div>
                             <div class="form-group col-12">
-                                <textarea name="" rows="4" class="form-control" placeholder="Enter your message"></textarea>
+                                <textarea rows="4" class="form-control" placeholder="Enter your message" name="message"></textarea>
                             </div>
                             <div class="form-group col-12 d-grid">
-                                <button type="submit" class="btn btn-brand">Contact me</button>
+                                <button type="submit" class="btn btn-brand btn-kirim">Contact me</button>
+
+                                <button class="btn btn-success btn-loading d-none" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -195,6 +204,33 @@
     <!-- //CONTENT WRAPPER -->
 
 
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzEhCymOj2J2XWiVae8DrZoI8GCrCq6v5N3cNnokO-X_3UDjEZPdSbQ4zl5p8C2kklYQg/exec'
+        const form = document.forms['contact-form']
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            // Ketika Tombol Submit di Klik
+            // Tampilkan Tombol Loading, Hilangkan Tombol Kirim
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Tampilkan Tombok Kirim, Hilangkan Tombol Loading
+                    btnLoading.classList.toggle('d-none');
+                    btnKirim.classList.toggle('d-none');
+                    // Tampilkan Alert
+                    myAlert.classList.toggle('d-none');
+                    // Reset Form
+                    form.reset();
+                    console.log('Success!', response);
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/aos.js"></script>
