@@ -55,8 +55,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10">
-                        <h1 class="display-4 fw-bold" data-aos="fade-up">POLIBATAM | <span class="text-brand">Cyber Security Engineering</span></h1>
-                        <p class="lead mt-2 mb-4" data-aos="fade-up" data-aos-delay="300">Hai, I'm Refi Arvindo, and I'm one of the students at the Batam State Polytechnic</p>
+                        <h1 class="display-4 fw-bold tulisan">POLIBATAM | <span class="text-brand"></span></h1>
+                        <p class="lead mt-2 mb-4"></p>
                         <div data-aos="fade-up" data-aos-delay="600">
                             <a href="#projects" class="btn btn-brand me-3">Explore My Projects</a>
                             <a href="#" class="link-custom">WhatsApp: (+62) 812 6859 3561</a>
@@ -232,9 +232,23 @@
         })
     </script>
 
+    <!-- Bootsrap JS -->
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
     <script src="./assets/js/aos.js"></script>
+
+    <!-- GSAP JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/TextPlugin.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+        gsap.to('.text-brand', {duration: 2, delay:1, text:'Cyber Security Engineering'});
+        gsap.to('.lead', {duration: 2.5, delay:3, text:"Hai, I'm Refi Arvindo, and I'm one of the students at the Batam State Polytechnic"});
+    </script>
     <script src="./assets/js/main.js"></script>
+    <!-- Akhir GSAP JS -->
 </body>
 
 </html>
