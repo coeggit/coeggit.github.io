@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Portfolio</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/aos.css"> 
+    <link rel="stylesheet" href="./assets/css/line-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container flex-lg-column">
+            <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
+                <span class="h3 fw-bold d-block d-lg-none">Refi Arvindo</span>
+                <img src="./assets/images/1.jpg" class="d-none d-lg-block rounded-circle" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- //NAVBAR -->
+
+    <!-- CONTENT WRAPPER -->
+    <div id="content-wrapper">
+
+        <!-- PROJECTS -->
+        <section id="projects" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4>MySql Access Control Lists</h4>
+                    </div>
+                </div>
+                <br>
+                <h5>Jenis Hak Akses pada MySql dan Contoh Penerapannya</h5>
+                <p>Mysql adalah sebuah sistem manajemen basisdata atau DBMS yang menggunakan perintah dasar SQL (structured query language) untuk mengelola data informasi agar lebih terstruktur dan sistematis</p>
+
+                <p>Pada dasarnya untuk mengatur keamanan pada database, maka tiap tiap user harus memiliki akses kontrol terhadap database sesuai dengan porsi user masing masing, baik dibatasi hanya dapat mengakses sebuah database tertentu, tabel tertentu, atau hanya kolom tertentu saja. Pada Mysql terdapat tingkatan level hak akses, seperti hak akses global, hak akses level database, hak akses level table, hak akses level kolom.</p>
+
+
+                <h5>Perintah Pemberian Hak Akses (Privileges)</h5>
+                <b>GRANT jenis_hak ON nama_database.nama_table TO 'user'@'host';</b>
+                <p>Perintah GRANT merupakan perintah untuk memberikan hak akses bagi user di MySql agar dapat mengakses database,tabel, hingga kolom/field.</p>
+
+                <h5>Jenis Hak Akses</h5>
+            <table class="table" style="color: white;">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">No.</th>
+                        <th scope="col" class="text-center">Nama Hak Akses</th>
+                        <th scope="col" class="text-center">Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>ALL [PRIVILEGES]</td>
+                        <td>Memberikan seluruh akses, kecuali GRANT OPTION</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>ALTER</td>
+                        <td>Hak akses untuk merubah table (ALTER TABLE)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>ALTER ROUTINE</td>
+                        <td>Hak akses untuk merubah stored routines</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>CREATE</td>
+                        <td>Hak akses untuk membuat tabel dan database</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>CREATE ROUTINE</td>
+                        <td>Hak akses untuk membuat dan menghapus stored routine</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>CREATE TABLESPACE</td>
+                        <td>Hak akses untuk membuat, mengubah dan menghapus tablespaces dan log file</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>CREATE TEMPORARYTANLES</td>
+                        <td>Hak akses untuk membuat tabel sementara CREATE TEMPORARY TABLE</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>CREATE USER</td>
+                        <td>Hak akses untuk membuat, menghapus, dan mengubah user (CREATE USER, DROP USER, RENAME USER, dan REVOKE ALL PRIVILEGES)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>CREATE VIEW</td>
+                        <td>Hak akses untuk membuat dan mengubah views</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>DELETE</td>
+                        <td>Hak akses untuk menghapus data (DELETE)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>DROP</td>
+                        <td>Hak akses untuk menghapus database, tabel dan view</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11</th>
+                        <td>EVENT</td>
+                        <td>Hak akses untuk membuat event</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12</th>
+                        <td>EXECUTE</td>
+                        <td>Hak akses untuk menjalankan stored routines</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">13</th>
+                        <td>FILE</td>
+                        <td>Hak akses untuk membuat server membaca maupun membuat file</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">14</th>
+                        <td>GRANT OPTION</td>
+                        <td>Hak akses untuk memberikan hak akses kepada user lainnya.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">15</th>
+                        <td>INDEX</td>
+                        <td>Hak akses untuk membuat dan menghapus index</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">16</th>
+                        <td>INSERT</td>
+                        <td>Hak akses untuk menambahkan data (query INSERT)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">17</th>
+                        <td>LOCK TABLES</td>
+                        <td>Hak akses untuk mengunci tabel (LOCK TABLES)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">18</th>
+                        <td>PROCESS</td>
+                        <td>Hak akses untuk melihat seluruh proses (SHOW PROCESSLIST)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">19</th>
+                        <td>PROXY</td>
+                        <td>Hak akses untuk proses proxy</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">20</th>
+                        <td>REFERENCES</td>
+                        <td>Belum diimplementasikan</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">21</th>
+                        <td>RELOAD</td>
+                        <td>Hak akses untuk operasi FLUSH</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">22</th>
+                        <td>REPLICATION CLIENT</td>
+                        <td>Hak akses untuk mengubah urutan master dan slave server</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">23</th>
+                        <td>REPLICATION SLAVE</td>
+                        <td>Hak akses untuk server replikasi untuk membaca log event biner dari server master</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">24</th>
+                        <td>SELECT</td>
+                        <td>Hak akses untuk melihat data (query SELECT)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">25</th>
+                        <td>SHOW DATABASES</td>
+                        <td>Hak akses untuk melihat seluruh database (SHOW DATABASES)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">26</th>
+                        <td>SHOW VIEW</td>
+                        <td>Hak akses untuk melihat pembuatan view (SHOW CREATE VIEW)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">27</th>
+                        <td>SHUTDOWN</td>
+                        <td>Hak akses untuk mysqladmin shutdown</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">28</th>
+                        <td>SUPER</td>
+                        <td>Hak akses untuk fungsi administrasi server, seperti CHANGE MASTER TO, KILL, PURGE BINARY LOGS, SET GLOBAL dan perintah debug mysqladmin</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">29</th>
+                        <td>TRIGGER</td>
+                        <td>Hak akses untuk operasi trigger</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">30</th>
+                        <td>UPDATE</td>
+                        <td>Hak akses untuk memperbaharui data (UPDATE)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">31</th>
+                        <td>USAGE</td>
+                        <td>Sama artinya dengan “tanpa hak akses”</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            
+        </section>
+    </div>
+        <!-- //PROJECTS -->
+
+        <!-- FOOTER -->
+        <footer class="py-5 px-lg-5">
+            <div class="container">
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-auto">
+                        <div class="social-icons">
+                            <a href="https://bit.ly/3SrbFXs"><i class="bi bi-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/refiarvindo/""><i class="bi bi-instagram"></i></a>
+                            <a href="https://github.com/coeggit"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //FOOTER -->
+
+    </div>
+    <!-- //CONTENT WRAPPER -->
+
+    <!-- Bootsrap JS -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="./assets/js/aos.js"></script>
+
+    <!-- GSAP JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/TextPlugin.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+        gsap.to('.text-brand', {duration: 2, delay:1, text:'Cyber Security Engineering'});
+        gsap.to('.lead', {duration: 2.5, delay:3, text:"Hai, I'm Refi Arvindo, and I'm one of the students at the Batam State Polytechnic"});
+    </script>
+    <script src="./assets/js/main.js"></script>
+    <!-- Akhir GSAP JS -->
+</body>
+
+</html>
