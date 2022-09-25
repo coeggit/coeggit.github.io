@@ -30,14 +30,7 @@
                 <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="./index.html">Home</a>
                     </li>
 
                 </ul>
@@ -55,113 +48,134 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-                        <h4>Wordpress | Download && Config Wordpress</h4>
+                        <h4>Wordpress | Config Web Server && Database</h4>
+                        <br><img src="./assets/images/configwsdb/TOPOLOGI.PNG" alt="TOPOLOGI">
                     </div>
                 </div>
                 
-                <br><p>Untuk yang belum config vm web server dan database bisa lihat <a href="./configwsdb.html">Disini</a></p>
-
-                <br><h5>Download worpress</h5>
+                <br><h5>Hal yang perlu di siapkan : </h5>
+                Bahan : 
+                <ul>
+                    <li><a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"><b>VMware Workstation Pro</b></a></li>
+                    <li><a href="https://ubuntu.com/download/server"><b>Ubuntu Server</b></a></li>
+                </ul>
                 <ol>
-                    <li>Buka direktori /temp dan download wordpress</li>
-                    <b>cd /tmp && wget https://wordpress.org/latest.tar.gz</b>
-                    <img src="./assets/images/configwsdb/web-server/download wordpress.PNG" alt="download wordpress">
-
-                    <li>Extract wordpress yang telah di unduh</li>
-                    <b>tar -xvf latest.tar.gz</b>
-                    <img src="./assets/images/configwsdb/web-server/ekstrak wordpress.PNG" alt="ekstrak wordpress">
-
-                    <li>Copy paste wordpress ke /var/www/html/</li>
-                    <b>cp -R wordpress /var/www/html/</b>
-                    <img src="./assets/images/configwsdb/web-server/cp wordpress.PNG" alt="copy paste wordpress">
-
-                    <li>Ubah kepemilikan direktori wordpress</li>
-                    <b>chown -R www-data:www-data /var/www/html/wordpress/</b>
-                    <img src="./assets/images/configwsdb/web-server/ubah kepemilikan wordpress.PNG" alt="ubah kepemilikan direktori wordpress">
-
-                    <li>Ubah izin file dari direktori wordpress</li>
-                    <b>chmod -R 755 /var/www/html/wordpress/</b>
-                    <img src="./assets/images/configwsdb/web-server/ubah izin wordpress.PNG" alt="ubah izin direktori wordpress">
-
-                    <li>Buat direktori upload</li>
-                    <b>mkdir /var/www/html/wordpress/wp-content/uploads</b>
-                    <img src="./assets/images/configwsdb/web-server/membuat direktori upload.PNG" alt="buat direktori upload">
-
-                    <li>Ubah izin direktori upload</li>
-                    <b>chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads/</b>
-                    <img src="./assets/images/configwsdb/web-server/ubah izin direktori upload.PNG" alt="ubah kepemilikan direktori upload">
-
-                    <li>Buka browser dan coba jalankan wordpress menggunakan IP web-server</li>
-                    <b>https://server-ip/wordpress</b>
-                    <img src="./assets/images/configwsdb/web-server/coba wordpress di web browser.PNG" alt="cek wordpress di web browser">
-                </ol>
-
-                <h5>Membuat user dan database di mysql</h5>
-                <p>Masuk ke vm database dan lakukan perintah berikut : </p>
-                <ol>
-                    <li>Membuat user di mysql</li>
-                    <b>CREATE USER '{username}'@'{ip web server}' IDENTIFIED BY '{password}';</b>
-
-                    <li>Membuat database</li>
-                    <b>create database {nama_database};</b>
-
-                    <li>Memberikan hak akses ke pada user</li>
-                    <b>GRANT ALL PRIVILEGES ON {nama database} .* TO '{username}'@'{ip web server}';</b>
-
-                    <li>Flush Privileges</li>
-                    <p>Flush Privileges berfungsi untuk memerintahkan flush kepada sistem untuk membaca ulang tanpa harus merestart server mysql. <br><b>FLUSH PRIVILEGES;</b></p>
-                    <img src="./assets/images/configwsdb/database/membuat user.PNG" alt="membuat user">
-                </ol>
-
-                <h5>Install Wordpress</h5>
-                <ol>
-                    <li>Akses wordpress di web browser</li>
-                    <b>ip-address/wordpress</b>
-                    <p>Kemudian pilih <b>Bahasa</b>, saya menggunakan <b>Bahasa Indonesia</b>, lalu <b>lanjutkan</b></p>
-                    <img src="./assets/images/configwsdb/web-server/coba wordpress di web browser.PNG" alt="akses wordpress di web">
-
-                    <li>Mulai setup wordpress, pilih <b>ayo</b></li>
-                    <img src="./assets/images/configwsdb/install wordpress/mulai setup wordpress.PNG" alt="mulai setup wordpress">
-
-                    <li>Isi form untuk terhubung ke database. Isi seperti berikut</li>
+                    <li>Membuat 2 vm, web_server dan database</li>
+                    <li>Setting network</li>
                     <ul>
-                        <li><b>Nama Basis Data : </b> Nama database yang telah di buat</li>
-                        <li><b>Nama Pengguna	:</b> Sama user mysql yang telah di buat</li>
-                        <li><b>Sandi	:</b> Password mysql yang telah di buat</li>
-                        <li><b>Host Basis Data	:</b> IP address vm database yang telah dibuat</li>
-                        <li><b>Prefik Tabel	:</b> Biarkan default</li>
+                        <li>Adapter 1</li>
+                        Ada 2 opsi : 
+                        <ol type="I">
+                            <li>NAT Adapter</li>
+                            <li>Bridge Adapter</li>
+                        </ol>
+                        <li>Adapter 2</li>
+                        <ol type="I">
+                            <li>Host Only Adapter</li>
+                        </ol>
                     </ul>
-                    <img src="./assets/images/configwsdb/install wordpress/isi form untuk terhubung ke db.PNG" alt="isi form">
-
-                    <li>Mulai installasi, pilih <b>Jalankan pemasangan</b></li>
-                    <img src="./assets/images/configwsdb/install wordpress/mulai installasi.PNG" alt="mulai instalasi">
-
-                    <li>Isi informasi</li>
-                    <ul>
-                        <li><b>Judul Situs	:</b> Isi sesuai kebutuhan</li>
-                        <li><b>Nama Pengguna	:</b> Isi sesuai keinginan kita </li>
-                        <li><b>Password	:</b> Isi sesuai keinginan kita</li>
-                        <li><b>Email	:</b> Isi sesuai email yang kita miliki</li>
-                    </ul>
-                    <img src="./assets/images/configwsdb/install wordpress/isi informasi.PNG" alt="isi informasi">
-                    <p><b>CATATAN :</b> Pastikan kita mengingat Nama Pengguna dan Password. Karena itu yang akan kita gunakan untuk login ke wordpress nantinya<br> Pilih <b>Install wordpress</b></p>
-
-                    <li>Jika berhasil, maka tampilan akan seperti ini</li>
-                    <img src="./assets/images/configwsdb/install wordpress/berhasil install wordpress.PNG" alt="berhasil install wordpress">
-                    <p>Lalu pilih <b>Log Masuk</b></p>
-
-                    <li>Login wordpress menggunakan username dan password yang telah dibuat</li>
-                    <img src="./assets/images/configwsdb/install wordpress/login wordpress.PNG" alt="login wordpress">
-
-                    <li>Kita akan disambut dengan tampilan dashboard dari wordpress</li>
-                    <img src="./assets/images/configwsdb/install wordpress/berhasil masuk ke menu wordpress.PNG" alt="menu wordpress">
-
-                    <li>Jika kita ingin mengunjungi web wordpress yang kita buat kita bisa pergi ke browser dan mengetik</li>
-                    <b>ip-address/wordpress</b>
-                    <img src="./assets/images/configwsdb/install wordpress/akses wordpress di web.PNG" alt="akses wordpress di web">
-
-                    <li>Selesai</li>
                 </ol>
+                
+                <h5>Config Web Server</h5>
+                <ol>
+                    <li>Sebelum mulai, kita masuk ke root dan update system terlebih dahulu</li>
+                    <b>apt update</b>
+                    <img src="./assets/images/configwsdb/web-server/update.PNG" alt="update">
+
+                    <li>Install apache2</li>
+                    <b>apt install apache2</b>
+                    <img src="./assets/images/configwsdb/web-server/install apache2.PNG" alt="install apache2">
+
+                    <li>Cek status apache2</li>
+                    <b>sysemctl status apache2</b>
+                    <img src="./assets/images/configwsdb/web-server/cek status apache2.PNG" alt="cek status apache2">
+
+                    <li>Setting IP static</li>
+                    <b>nano /etc/netplan/00-installer-config.yaml</b>
+                    <p>Buat seperti baris berikut : </p>
+                    <ul>
+                        <li><b>ens33</b> dhcp nya kita buat true karena kita akan menggunakan dhcp sebagai sumber internet.</li>
+                        <li><b>ens34</b> ini adalah host only, jadi kita setting untuk dhcp false dan kita masukkan IP address sesuai dengan IP address dari host only vm kita.</li>
+                    </ul>
+                    <img src="./assets/images/configwsdb/web-server/setting ip static.PNG" alt="setting ip static">
+                    
+                    <li>Apply netplan</li>
+                    <b>netplan apply </b>
+
+                    <li>Cek hostname</li>
+                    <b>hostname -I</b>
+                    <img src="./assets/images/configwsdb/web-server/cek hostname.PNG" alt="cek hostname">
+                    <p>Disini terdapat 2 IP address yaitu IP dhcp dan IP host only yang bisa kita gunakan nantinya untuk mengakses wordpress</p>
+
+                    <li>Cek apache2 di web browser menggunakan IP address yang telah kita cek sebelumnya</li>
+                    <b>https://ip-address</b>
+                    <img src="./assets/images/configwsdb/web-server/cek apache2 di web.PNG" alt="cek apache2 di web">
+                    
+                    <li>Install php</li>
+                    <b>apt install php php-mysql </b>
+                    <p>Tambahkan baris berikut : </p>
+                    <img src="./assets/images/configwsdb/web-server/config php_2.PNG" alt="config php">
+
+                    <li>Cek php menggunakan IP address kita sebelumnya</li>
+                    <b>http://ip-address/info.php</b>
+                    <img src="./assets/images/configwsdb/web-server/cek output config php.PNG" alt="cek php di web">
+
+                    <li>Install mysql client</li>
+                    <b>apt install mysql-client</b>
+                </ol>
+
+                <h5>Config Database</h5>
+                <ol>
+                    <li>Sebelum mulai, kita masuk ke root dan update system terlebih dahulu</li>
+                    <b>apt update</b>
+                    <img src="./assets/images/configwsdb/database/update.PNG" alt="update">
+
+                    <li>Install mysql-server</li>
+                    <b>apt install mysql-server</b>
+                    <img src="./assets/images/configwsdb/database/install mysql-server.PNG" alt="install mysql server">
+
+                    <li>Cek status mysql</li>
+                    <b>systemctl status mysql</b>
+                    <img src="./assets/images/configwsdb/database/cek status mysql.PNG" alt="cek status mysql">
+
+                    <li>Install php</li>
+                    <b>apt install php php-mysql</b>
+                    <img src="./assets/images/configwsdb/database/install php.PNG" alt="install php">
+
+                    <li>Konfigurasi php</li>
+                    <b>nano /var/www/html/info.php</b>
+                    <p>Tambahkan baris berikut : </p>
+                    <img src="./assets/images/configwsdb/database/config php_2.PNG" alt="config php">
+
+                    <li>Setting IP static</li>
+                    <b>nano /etc/netplan/00-installer-config.yaml</b>
+                    <p>Buat seperti baris berikut : </p>
+                    <ul>
+                        <li><b>ens33</b> dhcp nya kita buat true karena kita akan menggunakan dhcp sebagai sumber internet.</li>
+                        <li><b>ens34</b> ini adalah host only, jadi kita setting untuk dhcp false dan kita masukkan IP address sesuai dengan IP address dari host only vm kita.</li>
+                    </ul>
+                    <img src="./assets/images/configwsdb/database/setting ip static.PNG" alt="setting ip static">
+
+                    <li>Apply netplan</li>
+                    <b>netplan apply </b>
+
+                    <li>Cek hostname</li>
+                    <b>hostname -I</b>
+                    <img src="./assets/images/configwsdb/database/cek hostname.PNG" alt="cek hostname">
+
+                    <li>Cek php menggunakan IP address kita</li>
+                    <b>http://ip-address/info.php</b>
+                    <img src="./assets/images/configwsdb/database/cek output config php.PNG" alt="cek php di web">
+
+                    <li>Config mysql</li>
+                    <b>sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf</b>
+                    <p>Ubah <b>bind-address</b> menjadi IP address vm database, lalu <b>ctrl x</b> dan <b>y</b> lalu <b>enter</b></p>
+                    <img src="./assets/images/configwsdb/database/config mysql.PNG" alt="config mysql">
+
+                    <li>Untuk cara install wordpress bisa lihat <a href="./install-wordpress.html">Disini</a></li>
+
+                </ol>
+
             </div>
         </section>
     </div>
@@ -173,7 +187,6 @@
                 <div class="row gy-4 justify-content-center">
                     <div class="col-auto">
                         <div class="social-icons">
-                            <a href="https://bit.ly/3SrbFXs"><i class="bi bi-whatsapp"></i></a>
                             <a href="https://www.instagram.com/refiarvindo/""><i class="bi bi-instagram"></i></a>
                             <a href="https://github.com/coeggit"><i class="bi bi-github"></i></a>
                         </div>
