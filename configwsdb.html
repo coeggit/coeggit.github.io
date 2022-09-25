@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Portfolio</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/aos.css">
+    <link rel="stylesheet" href="./assets/css/line-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container flex-lg-column">
+            <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
+                <span class="h3 fw-bold d-block d-lg-none">Refi Arvindo</span>
+                <img src="./assets/images/1.jpg" class="d-none d-lg-block rounded-circle" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- //NAVBAR -->
+
+    <!-- CONTENT WRAPPER -->
+    <div id="content-wrapper">
+
+        <!-- PROJECTS -->
+        <section id="projects" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4>Wordpress | Config Web Server && Database MySQL</h4>
+                    </div>
+                </div>
+
+                <h5>Hal yang perlu dipersiapkan :</h5>
+                <ol>
+                    <li>Membuat 2 vm, web_server dan database</li>
+                    <li>Setting network</li>
+                    <ul>
+                        <li>Adapter 1</li>
+                        <ol type="I">
+                            <li>NAT Adapter</li>
+                            <li>Bridge Adapter</li>
+                        </ol>
+                        <li>Adapter 2</li>
+                        <ol type="I">
+                            <li>Host Only Adapter</li>
+                        </ol>
+                    </ul>
+                </ol>
+
+                <h5>Config Web Server</h5>
+                <ol>
+                    <li>Sebelum mulai, kita masuk ke root dan update system terlebih dahulu</li>
+                    <b>apt update</b>
+                    <img src="./assets/images/configwsdb/web-server/update.PNG" alt="update">
+
+                    <li>Install apache2</li>
+                    <b>apt install apache 2</b>
+                    <img src="./assets/images/configwsdb/web-server/install apache2.PNG" alt="install apache2">
+
+                    <li>Cek status apache</li>
+                    <b>sysemctl status apache2</b>
+                    <img src="./assets/images/configwsdb/web-server/cek status apache2.PNG" alt="cek status apache">
+
+                    <li>Setting IP static</li>
+                    <b>nano /etc/netplan/00-installer-config.yaml</b>
+                    <img src="./assets/images/configwsdb/web-server/setting ip static.PNG" alt="setting ip static">
+
+                    Buat seperti baris berikut : 
+                    <ul>
+                        <li><b>ens33</b> dhcp nya kita buat true kita akan menggunakan dhcp sebagai sumber internet.</li>
+                        <li><b>ens34</b> ini adalah host only, jadi kita setting untuk dhcp false dan kita masukkan IP address sesuai dengan IP address dari host only vm kita.</li>
+                    </ul>
+
+                    <li>Apply netplan</li>
+                    <b>netplan apply</b>
+
+                    <li>Cek Hostname</li>
+                    <b>hostname -I</b>
+                    <img src="./assets/images/configwsdb/web-server/cek hostname.PNG" alt="cek hostname">
+                    Disini terdapat 2 IP address yaitu IP dhcp dan IP host only yang bis akita gunakan nantinya untuk mengakses wordpress
+
+                    <li>Cek apache2 di web browser menggunakan IP address yang telah kita cek sebelumnya</li>
+                    <b>https://ip-address</b>
+                    <img src="./assets/images/configwsdb/web-server/cek apache2 di web.PNG" alt="cek apache2 di web">
+
+                    <li>Install php</li>
+                    <b>apt install php php-mysql</b>
+                    <img src="./assets/images/configwsdb/web-server/install php.PNG" alt="install php">
+
+                    <li>Config PHP</li>
+                    <b>nano var/www/html/info.php</b>
+                    <br> Tambahkan baris berikut : 
+                    <img src="./assets/images/configwsdb/web-server/config php_2.PNG" alt="config php">
+
+                    <li>Cek php menggunakan IP address kita sebelumnya</li>
+                    <b>http://ip-address/info.php</b>
+                    <img src="./assets/images/configwsdb/web-server/cek output config php.PNG" alt="cek php info di web">
+
+                    <li>Install mysql client</li>
+                    <b>apt install mysql-client</b>
+                </ol>
+
+                <h5>Config Database</h5>
+                <ol>
+                    <li>Sebelum mulai, kita masuk ke root dan update system terlebih dahulu</li>
+                    <b>apt update</b>
+                    <img src="./assets/images/configwsdb/database/update.PNG" alt="update">
+
+                    <li>Install mysql-server</li>
+                    <b>apt install mysql-server</b>
+                    <img src="./assets/images/configwsdb/database/install mysql-server.PNG" alt="install mysql server">
+
+                    <li>Cek status mysql</li>
+                    <b>systemctl status mysql</b>
+                    <img src="./assets/images/configwsdb/database/cek status mysql.PNG" alt="cek status mysql">
+
+                    <li>Install php</li>
+                    <b>apt install php php-mysql</b>
+                    <img src="./assets/images/configwsdb/database/install php.PNG" alt="install php">
+
+                    <li>Konfigurasi php</li>
+                    <b>nano /var/www/html/info.php</b>
+                    <br> Tambahkan baris berikut : 
+                    <img src="./assets/images/configwsdb/database/config php_2.PNG" alt="config php">
+
+                    <li>Setting IP static</li>
+                    <b>nano /etc/netplan/00-installer-config.yaml</b>
+                    <img src="./assets/images/configwsdb/database/setting ip static.PNG" alt="setting ip static">
+                    <br> Buat seperti baris berikut : 
+                    <ul>
+                        <li><b>ens33</b> dhcp nya kita buat true karena kita akan menggunakan dhcp sebagai sumber internet.</li>
+                        <li><b>ens34</b> ini adalah host only, jadi kita setting untuk dhcp false dan kita masukkan IP address sesuai dengan IP address dari host only vm kita.</li>
+                    </ul>
+
+                    <li>pply netplan</li>
+                    <b>netplan apply </b>
+
+                    <li>Cek php menggunakan IP address kita</li>
+                    <b>http://ip-address/info.php</b>
+                    <img src="./assets/images/configwsdb/database/cek output config php.PNG" alt="cek php di web">
+
+                    <li>Config mysql</li>
+                    <b>sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf</b>
+                    <br> Ubah <b>bind-address</b> menjadi IP address vm database, lalu <b>ctrl x</b> dan <b>y</b> lalu <b>enter</b>
+                    <img src="./assets/images/configwsdb/database/config mysql.PNG" alt="config mysql">
+
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+    </div>
+        <!-- //PROJECTS -->
+
+        <!-- FOOTER -->
+        <footer class="py-5 px-lg-5">
+            <div class="container">
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-auto">
+                        <div class="social-icons">
+                            <a href="https://bit.ly/3SrbFXs"><i class="bi bi-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/refiarvindo/""><i class="bi bi-instagram"></i></a>
+                            <a href="https://github.com/coeggit"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //FOOTER -->
+
+    </div>
+    <!-- //CONTENT WRAPPER -->
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzEhCymOj2J2XWiVae8DrZoI8GCrCq6v5N3cNnokO-X_3UDjEZPdSbQ4zl5p8C2kklYQg/exec'
+        const form = document.forms['contact-form']
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            // Ketika Tombol Submit di Klik
+            // Tampilkan Tombol Loading, Hilangkan Tombol Kirim
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Tampilkan Tombok Kirim, Hilangkan Tombol Loading
+                    btnLoading.classList.toggle('d-none');
+                    btnKirim.classList.toggle('d-none');
+                    // Tampilkan Alert
+                    myAlert.classList.toggle('d-none');
+                    // Reset Form
+                    form.reset();
+                    console.log('Success!', response);
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+    <!-- Bootsrap JS -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="./assets/js/aos.js"></script>
+
+    <!-- GSAP JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/TextPlugin.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+        gsap.to('.text-brand', {duration: 2, delay:1, text:'Cyber Security Engineering'});
+        gsap.to('.lead', {duration: 2.5, delay:3, text:"Hai, I'm Refi Arvindo, and I'm one of the students at the Batam State Polytechnic"});
+    </script>
+    <script src="./assets/js/main.js"></script>
+    <!-- Akhir GSAP JS -->
+</body>
+
+</html>
