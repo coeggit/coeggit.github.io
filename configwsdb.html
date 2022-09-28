@@ -79,100 +79,180 @@
                 <h5>Config Web Server</h5>
                 <ol>
                     <li>Sebelum mulai, kita masuk ke root dan update system terlebih dahulu</li>
-                    <b>apt update</b>
-                    <img src="./assets/images/configwsdb/web-server/update.PNG" alt="update">
-
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>apt update</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/web-server/update.PNG" alt="update"><br><br>
+                    
                     <li>Install apache2</li>
-                    <b>apt install apache2</b>
-                    <img src="./assets/images/configwsdb/web-server/install apache2.PNG" alt="install apache2">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>apt install apache2</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/web-server/install apache2.PNG" alt="install apache2"><br><br>
 
                     <li>Cek status apache2</li>
-                    <b>sysemctl status apache2</b>
-                    <img src="./assets/images/configwsdb/web-server/cek status apache2.PNG" alt="cek status apache2">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>sysemctl status apache2</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/web-server/cek status apache2.PNG" alt="cek status apache2"><br><br>
 
                     <li>Setting IP static</li>
-                    <b>nano /etc/netplan/00-installer-config.yaml</b>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>nano /etc/netplan/00-installer-config.yaml</b></td>
+                        </tr>
+                    </table>
                     <p>Buat seperti baris berikut : </p>
                     <ul>
                         <li><b>ens33</b> dhcp nya kita buat true karena kita akan menggunakan dhcp sebagai sumber internet.</li>
                         <li><b>ens34</b> ini adalah host only, jadi kita setting untuk dhcp false dan kita masukkan IP address sesuai dengan IP address dari host only vm kita.</li>
                     </ul>
-                    <img src="./assets/images/configwsdb/web-server/setting ip static.PNG" alt="setting ip static">
+                    <img src="./assets/images/configwsdb/web-server/setting ip static.PNG" alt="setting ip static"><br><br>
                     
                     <li>Apply netplan</li>
-                    <b>netplan apply </b>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>netplan apply </b></td>
+                        </tr>
+                    </table>
 
                     <li>Cek hostname</li>
-                    <b>hostname -I</b>
-                    <img src="./assets/images/configwsdb/web-server/cek hostname.PNG" alt="cek hostname">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>hostname -I</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/web-server/cek hostname.PNG" alt="cek hostname"><br><br>
                     <p>Disini terdapat 2 IP address yaitu IP dhcp dan IP host only yang bisa kita gunakan nantinya untuk mengakses wordpress</p>
 
                     <li>Cek apache2 di web browser menggunakan IP address yang telah kita cek sebelumnya</li>
-                    <b>https://ip-address</b>
-                    <img src="./assets/images/configwsdb/web-server/cek apache2 di web.PNG" alt="cek apache2 di web">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>https://ip-address</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/web-server/cek apache2 di web.PNG" alt="cek apache2 di web"><br><br>
                     
                     <li>Install php</li>
-                    <b>apt install php php-mysql </b>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>apt install php php-mysql </b></td>
+                        </tr>
+                    </table>
                     <p>Tambahkan baris berikut : </p>
-                    <img src="./assets/images/configwsdb/web-server/config php_2.PNG" alt="config php">
+                    <img src="./assets/images/configwsdb/web-server/config php_2.PNG" alt="config php"><br><br>
 
                     <li>Cek php menggunakan IP address kita sebelumnya</li>
-                    <b>http://ip-address/info.php</b>
-                    <img src="./assets/images/configwsdb/web-server/cek output config php.PNG" alt="cek php di web">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>http://ip-address/info.php</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/web-server/cek output config php.PNG" alt="cek php di web"><br><br>
 
                     <li>Install mysql client</li>
-                    <b>apt install mysql-client</b>
-                </ol>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>apt install mysql-client</b></td>
+                        </tr>
+                    </table>
+                </ol><br>
 
                 <h5>Config Database</h5>
                 <ol>
                     <li>Sebelum mulai, kita masuk ke root dan update system terlebih dahulu</li>
-                    <b>apt update</b>
-                    <img src="./assets/images/configwsdb/database/update.PNG" alt="update">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>apt update</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/database/update.PNG" alt="update"><br><br>
 
                     <li>Install mysql-server</li>
-                    <b>apt install mysql-server</b>
-                    <img src="./assets/images/configwsdb/database/install mysql-server.PNG" alt="install mysql server">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>apt install mysql-server</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/database/install mysql-server.PNG" alt="install mysql server"><br><br>
 
                     <li>Cek status mysql</li>
-                    <b>systemctl status mysql</b>
-                    <img src="./assets/images/configwsdb/database/cek status mysql.PNG" alt="cek status mysql">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>systemctl status mysql</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/database/cek status mysql.PNG" alt="cek status mysql"><br><br>
 
                     <li>Install php</li>
-                    <b>apt install php php-mysql</b>
-                    <img src="./assets/images/configwsdb/database/install php.PNG" alt="install php">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>apt install php php-mysql</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/database/install php.PNG" alt="install php"><br><br>
 
                     <li>Konfigurasi php</li>
-                    <b>nano /var/www/html/info.php</b>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>nano /var/www/html/info.php</b></td>
+                        </tr>
+                    </table>
                     <p>Tambahkan baris berikut : </p>
-                    <img src="./assets/images/configwsdb/database/config php_2.PNG" alt="config php">
+                    <img src="./assets/images/configwsdb/database/config php_2.PNG" alt="config php"><br><br>
 
                     <li>Setting IP static</li>
-                    <b>nano /etc/netplan/00-installer-config.yaml</b>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>nano /etc/netplan/00-installer-config.yaml</b></td>
+                        </tr>
+                    </table>
                     <p>Buat seperti baris berikut : </p>
                     <ul>
                         <li><b>ens33</b> dhcp nya kita buat true karena kita akan menggunakan dhcp sebagai sumber internet.</li>
                         <li><b>ens34</b> ini adalah host only, jadi kita setting untuk dhcp false dan kita masukkan IP address sesuai dengan IP address dari host only vm kita.</li>
                     </ul>
-                    <img src="./assets/images/configwsdb/database/setting ip static.PNG" alt="setting ip static">
+                    <img src="./assets/images/configwsdb/database/setting ip static.PNG" alt="setting ip static"><br><br>
 
                     <li>Apply netplan</li>
-                    <b>netplan apply </b>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>netplan apply </b></td>
+                        </tr>
+                    </table>
 
                     <li>Cek hostname</li>
-                    <b>hostname -I</b>
-                    <img src="./assets/images/configwsdb/database/cek hostname.PNG" alt="cek hostname">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>hostname -I</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/database/cek hostname.PNG" alt="cek hostname"><br><br>
 
                     <li>Cek php menggunakan IP address kita</li>
-                    <b>http://ip-address/info.php</b>
-                    <img src="./assets/images/configwsdb/database/cek output config php.PNG" alt="cek php di web">
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>http://ip-address/info.php</b></td>
+                        </tr>
+                    </table>
+                    <img src="./assets/images/configwsdb/database/cek output config php.PNG" alt="cek php di web"><br><br>
 
                     <li>Config mysql</li>
-                    <b>sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf</b>
+                    <table border="2" class="table" style="color: white;">
+                        <tr>
+                            <td><b>sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf</b></td>
+                        </tr>
+                    </table>
                     <p>Ubah <b>bind-address</b> menjadi IP address vm database, lalu <b>ctrl x</b> dan <b>y</b> lalu <b>enter</b></p>
-                    <img src="./assets/images/configwsdb/database/config mysql.PNG" alt="config mysql">
+                    <img src="./assets/images/configwsdb/database/config mysql.PNG" alt="config mysql"><br><br>
 
-                    <li>Untuk cara install wordpress bisa lihat <a href="./install-wordpress.html">Disini</a></li>
+                    <li>Untuk cara install wordpress bisa lihat <a href="./install-wordpress.html" style="color: white;">Disini</a></li>
 
                 </ol>
 
