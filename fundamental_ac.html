@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Portfolio</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/aos.css">
+    <link rel="stylesheet" href="./assets/css/line-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        p{
+            text-indent: 0.5in;
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container flex-lg-column">
+            <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
+                <span class="h3 fw-bold d-block d-lg-none">Refi Arvindo</span>
+                <img src="./assets/images/1.jpg" class="d-none d-lg-block rounded-circle" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- //NAVBAR -->
+
+    <!-- CONTENT WRAPPER -->
+    <div id="content-wrapper">
+
+        <!-- PROJECTS -->
+        <section id="projects" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4>Fundamental Access Control</h4><br>
+                        <img src="./assets/images/fudamental ac/1.png" alt=""><br><br>
+                    </div>
+                </div>
+                
+                <h5><b>Apa itu Access Control</b></h5>
+                <p>Access control adalah proteksi layer pertama terhadap aset aset  perusahaan atau organisasi, umumnya access control menggunakan beberapa layer teknologi. Namun secara teori ada yang dinamakan ada object access control dan subyek access control. Object adalah sebuah bentuk pasif dari aset perusahaan sedangkan subject adalah bentuk active dari perusahaan, contoh object adalah jaringan perusahaan, database perusahaan, email dll, sedangkan contoh subject adalah user atau aplikasi lain yang melakukan akses ke object tersebut.</p>
+                <p>Access Control menjaga agar informasi rahasia—seperti data pelanggan dan kekayaan intelektual—tidak dicuri oleh aktor jahat atau pengguna tidak sah lainnya. Ini juga mengurangi risiko eksfiltrasi data oleh karyawan dan mencegah ancaman berbasis web. Alih-alih mengelola izin secara manual, sebagian besar organisasi yang digerakkan oleh keamanan bersandar pada solusi Manajemen identitas dan akses untuk menerapkan kebijakan Access Control.</p>
+
+                <h5>Berbagai Jenis Access Control</h5><br>
+                <h5>Discretionary Access Control (DAC)</h5>
+                <p>Discretionary Access Constrol (DAC) merupakan suatu mekanisme data security yang menitik beratkan pada security objects, security subjects, dan access previleges dalam hal ini, DAC akan membatasi akses pada objek-objek berdasarkan identitas subjek atau group dimana mereka berada. Dalam DAC, keamanan data dapat direpresentasikan bahwa :</p>
+                <ol>
+                    <li>User dapat menjaga data yang mereka miliki</li>
+                    <li>Owner dapat memberikan grant pada user lainnya</li>
+                    <li>Owner dapat memberikan definisi tipe akses yang akan diberikan pada user apakah akses tersebut berupa read, write, execute</li>
+                </ol>
+                <p>Definisi Discretionary Access Control yaitu suatu mekanisme dalam pembatasan akses kepada objek-objeknya.</p>
+
+                <h5>Roled-Based Access Control (RBAC)</h5>
+                <p>Dalam RBAC, hak akses diberikan berdasarkan peran atau fungsi bisnis yang ditentukan. Tujuannya adalah untuk memberi pengguna hanya data yang mereka butuhkan untuk melakukan pekerjaan mereka—dan tidak lebih. Misalkan ruangan manajer hanya dapat diakses oleh manajer itu sendiri, sedangkan karyawan tidak dapat mengakses ruangan tersebut. </p>
+                <p>Contoh: pada MySQL setiap user diberikan peran tertentu untuk mengurus suatu database seperti mengunci database, mengupdate, atau juga user yang memiliki hak penuh di database.</p>
+
+                <h5>Mandatory Access Control (MAC)</h5>
+                <p>Dalam MAC, pengguna diberikan akses dalam bentuk izin dimana hak akses diberikan dan diatur oleh otoritas pusat dan mengaturnya dalam tingkatan, yang secara seragam memperluas cakupannya. Contoh: user ‘root’ MySQL dapat memberikan privileges tertentu kepada user lain untuk mengurus database tertentu sesuia dengan job yang diberikan si user ‘root’.</p>
+                <p>Mandatory Acces Control adalah salah satu sistem akses paling aman, karena cukup tahan gangguan. Berbeda dengan RBAC, pengguna tidak dapat membuat perubahan. Pemeriksaan dan penegakan hak akses sepenuhnya otomatis. Ini meminjamkan Kontrol Akses Wajib tingkat kerahasiaan yang tinggi. Selain itu, sistem ini menawarkan tingkat integritas yang tinggi: Data tidak dapat dimodifikasi tanpa otorisasi yang tepat dan dengan demikian dilindungi dari gangguan.</p>
+
+                <h5>Attribute-Based Access Control (ABAC)</h5>
+                <p>Dalam ABAC, hak akses diberikan secara fleksibel berdasarkan kombinasi atribut dan kondisi lingkungan, seperti waktu dan lokasi. ABAC adalah model kontol akses paling terperinci dan membantu mengurangi jumlah penetapan peran.</p>
+                <p>Contoh: di suatu database ada Atribute Editor, Security , dan Manajemen. Editor harus memilik akses mengubah, menghapus, dan membuat (ALTER, CREATE, DELETE), dan Security harus memilik hak untuk melihat semua proses dan mengunci table (SHOW PROCESSLIST & LOCK TABLES) , dan Manajemen memiliki akses untuk memberikan hak-hak yang berkaitan tadi (OPTION PRIVILEGES). Berdasarkan atribut-atribut tersebut admin/root dapat menerapkan kontrol akses terperinci berbasis kebijakan, menggunakan kombinasi atribut yang berbeda untuk menciptakan kondisi akses yang spesifik atau seluas yang diminta oleh situasi.</p>
+
+            </div>
+        </section>
+    </div>
+        <!-- //PROJECTS -->
+
+        <!-- FOOTER -->
+        <footer class="py-5 px-lg-5">
+            <div class="container">
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-auto">
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/refiarvindo/""><i class="bi bi-instagram"></i></a>
+                            <a href="https://github.com/coeggit"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //FOOTER -->
+
+    </div>
+    <!-- //CONTENT WRAPPER -->
+
+    <!-- Bootsrap JS -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="./assets/js/aos.js"></script>
+
+    <!-- GSAP JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/TextPlugin.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+        gsap.to('.text-brand', {duration: 2, delay:1, text:'Cyber Security Engineering'});
+        gsap.to('.lead', {duration: 2.5, delay:3, text:"Hai, I'm Refi Arvindo, and I'm one of the students at the Batam State Polytechnic"});
+    </script>
+    <script src="./assets/js/main.js"></script>
+    <!-- Akhir GSAP JS -->
+</body>
+
+</html>
